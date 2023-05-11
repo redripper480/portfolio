@@ -1,14 +1,89 @@
 <template>
   <div>
-    <NavBar :distance="menuoverlap"></NavBar>
+    <NavBar :distance="menuoverlap" :workTab="showWork" :currentTab="current"></NavBar>
     <div
-      class="w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
-
+      class="worktab  h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
+      :class="showWork ? '' : 'translate-x-full'"
     >
       <div
-        class="md:w-[80%] w-full gap-[50px] flex flex-col justify-between"
+        class="flex flex-wrap justify-center w-[80%] lg:w-[50%]  border border-light-black  rounded"
       >
-        <h1 class="font-martianomono font-semiboldx text-center text-3xl md:text-5xl">
+        
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+   
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+          <div
+            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
+          ></div>
+       
+      </div>
+
+      <div class="absolute bottom-0 mb-10">
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="af block text-white text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="as block text-white text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="at block text-white text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+      </div>
+
+      <div class="absolute collapse md:visible left-10 mb-10 rotate-90">
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="af block text-white text-2xl cursor-pointer"
+          v-on:click="showWork = false, current = 'Home'"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="as block text-white text-2xl cursor-pointer"
+          v-on:click="showWork = false, current = 'Home'"
+
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="at block text-white text-2xl cursor-pointer"
+          v-on:click="showWork = false, current = 'Home'"
+
+        />
+      </div>
+    </div>
+    <div
+      id="topPage"
+      class="homescreen w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
+      :class="showWork ? '-translate-x-full' : ''"
+    >
+      <div class="md:w-[80%] w-full gap-[50px] flex flex-col justify-between">
+        <h1
+          class="font-martianomono font-semiboldx text-center text-3xl md:text-5xl"
+        >
           Hello, Im Zoraz and im
         </h1>
         <div class="text-center cursor">
@@ -41,25 +116,33 @@
         />
       </div>
 
-      <div class="absolute right-20 mb-10 -rotate-90">
+      <div class="absolute collapse md:visible right-20 mb-10 -rotate-90">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
+          v-on:click="(showWork = true), scrolltotop(), current='Work'"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="as block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
+          v-on:click="(showWork = true), scrolltotop(), current='Work'"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="at block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
+          v-on:click="(showWork = true), scrolltotop(), current='Work'"
         />
       </div>
     </div>
-    <div id="nextpage" class="h-screen w-screen bg-black"></div>
+
+    <div
+      id="nextpage"
+      class="h-screen w-screen bg-black flex justify-center items-center"
+    >
+      <h1 class="font-martianomono text-5xl text-white">
+        'Work . In . Progress'
+      </h1>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -74,28 +157,32 @@ export default {
       profession: "Developer",
       professions: ["repoleveD", "tnedutS", "remmargmorP", "tsaisuhtnE YID"],
       menuoverlap: 1920,
+      showWork: false,
+      current: "Home",
     };
   },
   methods: {
     scrollintoview() {
       let elementselect = document.getElementById("nextpage");
-      elementselect?.scrollIntoView({ behavior: "smooth" , block:"start"});
+      elementselect?.scrollIntoView({ behavior: "smooth", block: "start" });
     },
-    elementsOverlap(el:any) {
+    elementsOverlap(el: any) {
       const domRect1 = el.getBoundingClientRect();
-      return domRect1['y'];
+      return domRect1["y"];
+    },
+    scrolltotop() {
+      let elementselect = document.getElementById("topPage");
+      elementselect?.scrollIntoView({ behavior: "smooth" });
     },
   },
- 
-  mounted() {
 
+  mounted() {
     document.addEventListener("scroll", () => {
       let el = document.getElementById("nextpage");
       let val = this.elementsOverlap(el);
       console.log(val);
       this.menuoverlap = val;
-      
-    })
+    });
     let size = this.professions.length;
     let currindex = size - 1;
     var vm = this;
@@ -150,35 +237,28 @@ export default {
   }
   100% {
     opacity: 1;
-
   }
 }
 @keyframes sarrow {
   0% {
     opacity: 1;
-
   }
   50% {
     opacity: 0;
-
   }
   100% {
     opacity: 1;
-
   }
 }
 @keyframes tarrow {
   0% {
     opacity: 1;
-
   }
   50% {
     opacity: 1;
-
   }
   80% {
     opacity: 0;
-
   }
 }
 .cursor::after {
@@ -199,5 +279,15 @@ export default {
 }
 .at {
   animation: tarrow 0.5s ease-in infinite;
+}
+
+.worktab,
+.homescreen {
+  transition-duration: 700ms;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.box {
+  transition-duration: 500ms;
 }
 </style>
