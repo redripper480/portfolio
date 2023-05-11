@@ -2,12 +2,13 @@
   <div>
     <NavBar :distance="menuoverlap"></NavBar>
     <div
-      class="w-screen h-screen bg-yellow-background flex flex-col justify-center items-center"
+      class="w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
+
     >
       <div
-        class="md:w-[80%] w-full gap-[50px] flex flex-col justify-between md:-translate-y-[100px]"
+        class="md:w-[80%] w-full gap-[50px] flex flex-col justify-between"
       >
-        <h1 class="font-martianomono text-center text-3xl md:text-5xl">
+        <h1 class="font-martianomono font-semiboldx text-center text-3xl md:text-5xl">
           Hello, Im Zoraz and im
         </h1>
         <div class="text-center cursor">
@@ -23,6 +24,24 @@
         </div>
       </div>
       <div class="absolute bottom-0 mb-10">
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="af block text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="as block text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-chevron-down"
+          class="at block text-2xl cursor-pointer"
+          v-on:click="scrollintoview"
+        />
+      </div>
+
+      <div class="absolute right-20 mb-10 -rotate-90">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-2xl cursor-pointer"
@@ -60,7 +79,7 @@ export default {
   methods: {
     scrollintoview() {
       let elementselect = document.getElementById("nextpage");
-      elementselect?.scrollIntoView({ behavior: "smooth" });
+      elementselect?.scrollIntoView({ behavior: "smooth" , block:"start"});
     },
     elementsOverlap(el:any) {
       const domRect1 = el.getBoundingClientRect();
@@ -124,35 +143,42 @@ export default {
 
 @keyframes farrow {
   40% {
-    color: gray;
+    opacity: 0;
   }
   50% {
-    color: black;
+    opacity: 1;
   }
   100% {
-    color: black;
+    opacity: 1;
+
   }
 }
 @keyframes sarrow {
   0% {
-    color: black;
+    opacity: 1;
+
   }
   50% {
-    color: gray;
+    opacity: 0;
+
   }
   100% {
-    color: black;
+    opacity: 1;
+
   }
 }
 @keyframes tarrow {
   0% {
-    color: black;
+    opacity: 1;
+
   }
   50% {
-    color: black;
+    opacity: 1;
+
   }
   80% {
-    color: gray;
+    opacity: 0;
+
   }
 }
 .cursor::after {
@@ -166,12 +192,12 @@ export default {
 }
 
 .af {
-  animation: farrow 0.5s infinite;
+  animation: farrow 0.5s ease-in infinite;
 }
 .as {
-  animation: sarrow 0.5s infinite;
+  animation: sarrow 0.5s ease-in infinite;
 }
 .at {
-  animation: tarrow 0.5s infinite;
+  animation: tarrow 0.5s ease-in infinite;
 }
 </style>
