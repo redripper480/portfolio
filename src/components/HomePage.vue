@@ -1,80 +1,49 @@
 <template>
   <div>
-    <NavBar :distance="menuoverlap" :workTab="showWork" :currentTab="current"></NavBar>
+    <NavBar
+      :distance="menuoverlap"
+      :workTab="showWork"
+      :currentTab="current"
+    ></NavBar>
     <div
-      class="worktab  h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
+      class="worktab h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
       :class="showWork ? '' : 'translate-x-full'"
     >
       <div
-        class="flex flex-wrap justify-center w-[80%] lg:w-[50%]  border border-light-black  rounded"
+        class="flex flex-wrap justify-center w-[80%] lg:w-[40%] border border-light-black rounded"
       >
-        
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-   
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-          <div
-            class="md:h-[12rem]  h-[6.5rem]  md:w-[12rem] w-[6.5rem] grow border  border-light-black box hover:bg-white"
-          ></div>
-       
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
+        <div
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+        ></div>
       </div>
 
-      <div class="absolute bottom-0 mb-10">
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="af block text-white text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="as block text-white text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="at block text-white text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-      </div>
-
-      <div class="absolute collapse md:visible left-10 mb-10 rotate-90">
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="af block text-white text-2xl cursor-pointer"
-          v-on:click="showWork = false, current = 'Home'"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="as block text-white text-2xl cursor-pointer"
-          v-on:click="showWork = false, current = 'Home'"
-
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="at block text-white text-2xl cursor-pointer"
-          v-on:click="showWork = false, current = 'Home'"
-
-        />
-      </div>
+      <NavigatorDown></NavigatorDown>
+      <NavigatorLeft></NavigatorLeft>
+      
     </div>
+    
     <div
       id="topPage"
       class="homescreen w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
@@ -98,41 +67,10 @@
           </p>
         </div>
       </div>
-      <div class="absolute bottom-0 mb-10">
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="af block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="as block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="at block text-2xl cursor-pointer"
-          v-on:click="scrollintoview"
-        />
-      </div>
-
-      <div class="absolute collapse md:visible right-20 mb-10 -rotate-90">
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="af block text-2xl cursor-pointer"
-          v-on:click="(showWork = true), scrolltotop(), current='Work'"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="as block text-2xl cursor-pointer"
-          v-on:click="(showWork = true), scrolltotop(), current='Work'"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-chevron-down"
-          class="at block text-2xl cursor-pointer"
-          v-on:click="(showWork = true), scrolltotop(), current='Work'"
-        />
-      </div>
+      <NavigatorUp></NavigatorUp>
+      <NavigatorDown></NavigatorDown>
+      <NavigatorRight></NavigatorRight>
+      <NavigatorLeft></NavigatorLeft>
     </div>
 
     <div
@@ -147,10 +85,18 @@
 </template>
 <script lang="ts">
 import NavBar from "./NavBar.vue";
+import NavigatorDown from "./utility/NavigatorDown.vue";
+import NavigatorUp from "./utility/NavigatorUp.vue";
+import NavigatorLeft from "./utility/NavigatorLeft.vue";
+import NavigatorRight from "./utility/NavigatorRight.vue";
 export default {
   name: "HomePage",
   components: {
     NavBar,
+    NavigatorDown,
+    NavigatorUp,
+    NavigatorLeft,
+    NavigatorRight,
   },
   data() {
     return {
@@ -159,12 +105,13 @@ export default {
       menuoverlap: 1920,
       showWork: false,
       current: "Home",
+      direction: "",
     };
   },
   methods: {
-    scrollintoview() {
-      let elementselect = document.getElementById("nextpage");
-      elementselect?.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollintoview(e: string) {
+      let elementselect = document.getElementById(e);
+      elementselect?.scrollIntoView({ behavior: "smooth" });
     },
     elementsOverlap(el: any) {
       const domRect1 = el.getBoundingClientRect();
@@ -173,6 +120,14 @@ export default {
     scrolltotop() {
       let elementselect = document.getElementById("topPage");
       elementselect?.scrollIntoView({ behavior: "smooth" });
+    },
+    changePage() {
+      if (this.current === "Home") {
+        if (this.direction === "right") {
+        } else if (this.direction === "down") {
+          this.scrollintoview("nextpage");
+        }
+      }
     },
   },
 
@@ -228,39 +183,7 @@ export default {
   }
 }
 
-@keyframes farrow {
-  40% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes sarrow {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes tarrow {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0;
-  }
-}
+
 .cursor::after {
   content: "";
   background: black;
@@ -271,15 +194,7 @@ export default {
   animation: cursor-blink 1.5s steps(2) infinite;
 }
 
-.af {
-  animation: farrow 0.5s ease-in infinite;
-}
-.as {
-  animation: sarrow 0.5s ease-in infinite;
-}
-.at {
-  animation: tarrow 0.5s ease-in infinite;
-}
+
 
 .worktab,
 .homescreen {

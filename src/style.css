@@ -5,3 +5,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes farrow {
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sarrow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes tarrow {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+}
+.af {
+  animation: farrow 0.5s ease-in infinite;
+}
+.as {
+  animation: sarrow 0.5s ease-in infinite;
+}
+.at {
+  animation: tarrow 0.5s ease-in infinite;
+}
