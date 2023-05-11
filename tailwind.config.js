@@ -12,6 +12,8 @@ export default {
       },
       colors:{
         "yellow-background": "#FDD000",
+        "light-black": "#292929",
+        "underline-blue":"#0087ca"
       }
     },
     
