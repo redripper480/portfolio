@@ -3,36 +3,37 @@
     <NavBar
       :currentTab="current"
     ></NavBar>
+    <MiniMap :xtranslate="xtranslate" :ytranslate="ytranslate" ></MiniMap>
     <div class="worktab h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
       :class="current === 'worktab' ? '' : 'translate-x-full'"
     >
       <div
-        class="flex flex-wrap justify-center w-[80%] lg:w-[40%] border border-light-black rounded"
+        class="flex flex-wrap justify-center w-[80%] lg:w-[39%] "
       >
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
 
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]"
         ></div>
         <div
-          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white"
+          class="md:h-[12rem] h-[6.5rem] md:w-[12rem] w-[6.5rem] grow border border-light-black box hover:bg-white hover:w-[7rem] hover:h-[7rem] md:hover:w-[13rem] md:hover:h-[13rem]" 
         ></div>
       </div>
 
@@ -89,6 +90,7 @@ import NavigatorDown from "./utility/NavigatorDown.vue";
 import NavigatorUp from "./utility/NavigatorUp.vue";
 import NavigatorLeft from "./utility/NavigatorLeft.vue";
 import NavigatorRight from "./utility/NavigatorRight.vue";
+import MiniMap from "./utility/MiniMap.vue";
 export default {
   name: "HomePage",
   components: {
@@ -97,12 +99,16 @@ export default {
     NavigatorUp,
     NavigatorLeft,
     NavigatorRight,
+    MiniMap
   },
   data() {
     return {
       profession: "Developer",
       professions: ["repoleveD", "tnedutS", "remmargmorP", "tsaisuhtnE YID"],
       current: "Home",
+      xtranslate: 0,
+      ytranslate: 0
+
     };
   },
   methods: {
@@ -114,23 +120,29 @@ export default {
       if (this.current === "Home") {
         this.current = "aboutpage";
         this.scrollintoview("aboutpage");
+        this.ytranslate += 100;
       }
     },
     moveUp() {
       if (this.current === "aboutpage") {
         this.scrollintoview("Home");
         this.current = "Home";
+        this.ytranslate -= 100;
+
       }
     },
     moveRight() {
       if (this.current === "Home") {
         this.current = "worktab";
+        this.xtranslate += 100;
+
       }
     },
     moveLeft() {
       if(this.current === "worktab"){
         this.current = "Home";
-        console.log(this.current)
+        this.xtranslate -= 100;
+
       }
     },
 
