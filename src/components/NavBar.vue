@@ -69,22 +69,11 @@ export default {
     };
   },
   props: {
-    distance: {
-      type: Number,
-      required: true,
-    },
-    workTab: {
-      type: Boolean,
-      required: true,
-    },
     currentTab: String
   },
   computed: {
-    tabSwitch(){
-      return this.currentTab;
-    },
     changeColor() {
-      if (this.distance < 55 || this.workTab) {
+      if (this.currentTab === 'worktab') {
         return true;
       } else {
         return false;

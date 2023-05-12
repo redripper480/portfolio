@@ -4,17 +4,20 @@
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-2xl cursor-pointer"
-      
+          v-on:click="$emit('click')"
+                   :class="color"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="as block text-2xl cursor-pointer"
-       
+          v-on:click="$emit('click')"
+                    :class="color"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="at block text-2xl cursor-pointer"
-
+          v-on:click="$emit('click')"
+             :class="color"
         />
       </div>
 
@@ -22,7 +25,11 @@
 
 <script lang="ts">
 export default{
-    name:"NavigatorRight"
+    name:"NavigatorRight",
+    props:{
+
+      color: String
+    },
 }
 </script>
 
