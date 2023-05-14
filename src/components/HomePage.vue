@@ -3,8 +3,31 @@
     <NavBar
       :currentTab="current"
     ></NavBar>
-    <MiniMap :xtranslate="xtranslate" :ytranslate="ytranslate" ></MiniMap>
-    <div class="worktab h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
+    <MiniMap :xtranslate="xtranslate" :ytranslate="ytranslate" ></MiniMap> 
+  
+  
+    <div id="Info" class="bg-yellow-background h-screen w-screen flex flex-col justify-center items-center ">
+      <div class="w-[90%] flex flex-wrap justify-center items-center h-[90%] border p-2">
+        <div class="grow h-[50%] md:h-full border relative z-10">
+
+          <h1 id="text" class="text-4xl absolute  font-martianomono  "
+          
+          >Hi</h1>
+        </div>
+        <div class=" md:h-full w-full h-[50%] md:w-[50%] flex md:flex-col justify-center items-center border">
+       
+          <div class="md:w-full w-[50%] h-full md:h-[50%] border"></div>
+          <div class="md:w-full w-[50%] h-full md:h-[50%] border"></div>
+        </div>
+       
+
+
+      </div>
+      <NavigatorDown @click="moveDown" :color="'text-black'" ></NavigatorDown>
+
+    </div>
+
+    <div class=" translateWindow worktab h-screen w-screen bg-black absolute flex flex-col justify-around items-center"
       :class="current === 'worktab' ? '' : 'translate-x-full'"
     >
       <div
@@ -43,9 +66,8 @@
 
       
     </div>
-    
-    <div id="Home"
-      class="homescreen w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
+
+    <div id="Home" class="translateWindow relative w-screen h-screen bg-yellow-background flex flex-col justify-center items-center z-0"
       :class="current === 'worktab' ? '-translate-x-full' : ''"
     >
       <div class="md:w-[80%] w-full gap-[50px] flex flex-col justify-between">
@@ -105,7 +127,7 @@ export default {
     return {
       profession: "Developer",
       professions: ["repoleveD", "tnedutS", "remmargmorP", "tsaisuhtnE YID"],
-      current: "Home",
+      current: "Info",
       xtranslate: 0,
       ytranslate: 0
 
@@ -122,6 +144,11 @@ export default {
         this.scrollintoview("aboutpage");
         this.ytranslate += 100;
       }
+      else if(this.current === "Info"){
+        this.current = "Home";
+        this.scrollintoview("Home");
+        this.ytranslate += 100;
+      }
     },
     moveUp() {
       if (this.current === "aboutpage") {
@@ -129,6 +156,11 @@ export default {
         this.current = "Home";
         this.ytranslate -= 100;
 
+      }
+      else if (this.current === "Home") {
+        this.current = "Info";
+        this.scrollintoview("Info");
+        this.ytranslate -= 100;
       }
     },
     moveRight() {
@@ -221,11 +253,11 @@ export default {
 
 
 
-.worktab,
-.homescreen {
+.translateWindow {
   transition-duration: 700ms;
   transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 
 .box {
   transition-duration: 500ms;
