@@ -1,6 +1,6 @@
 <template>
 
-<div class="absolute bottom-0 mb-10">
+<div class="absolute bottom-0 mb-10 self-center">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-black text-2xl cursor-pointer"

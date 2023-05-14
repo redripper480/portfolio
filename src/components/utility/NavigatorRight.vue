@@ -1,6 +1,6 @@
 <template>
 
-<div class="absolute collapse md:visible right-20 mb-10 -rotate-90">
+<div class="absolute collapse md:visible right-20 mb-10 -rotate-90 self-center">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-2xl cursor-pointer"

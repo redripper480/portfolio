@@ -1,7 +1,7 @@
 <template>
 
 
-<div class="absolute top-0 mt-10 -rotate-180">
+<div class="absolute top-0 mt-10 -rotate-180 self-center">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
           class="af block text-2xl cursor-pointer"
