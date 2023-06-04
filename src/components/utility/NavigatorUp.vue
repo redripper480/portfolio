@@ -4,19 +4,19 @@
 <div class="absolute top-0 mt-10 -rotate-180 self-center">
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
-          class="af block text-2xl cursor-pointer"
+          class="af block text-1xl cursor-pointer"
           :class="color"
           v-on:click="$emit('click')"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
-          class="as block text-2xl cursor-pointer"
+          class="as block text-1xl cursor-pointer"
           :class="color"
           v-on:click="$emit('click')"
         />
         <font-awesome-icon
           icon="fa-solid fa-chevron-down"
-          class="at block text-2xl cursor-pointer"
+          class="at block text-1xl cursor-pointer"
           :class="color"
           v-on:click="$emit('click')"
         />
