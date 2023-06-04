@@ -7,9 +7,10 @@ import App from './App.vue'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import {faArrowRightLong} from '@fortawesome/free-solid-svg-icons'
 
 
 
-library.add(faBars,faArrowLeft,faChevronDown)
+library.add(faBars,faArrowLeft,faChevronDown, faArrowRightLong)
 
 createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
