@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     changeColor() {
-      if (this.currentTab === 'worktab') {
+      if (this.currentTab === 'worktab' ) {
         return true;
       } else {
         return false;
@@ -100,11 +100,11 @@ export default {
   content: '';
   position: absolute;
   width: 100%;
-  transform: scaleX(0);
   height: 2px;
   bottom: 0;
   left: 0;
   background-color: #0087ca;
+  transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
