@@ -5,9 +5,11 @@
 
     <div
       id="Info"
-      class="bg-[#722e9a] h-screen w-screen flex flex-col justify-center items-center"
+      class="h-screen w-screen flex flex-col justify-center items-center bg-black"
     >
-      <NavigatorDown @click="moveDown" :color="'text-black'"></NavigatorDown>
+
+        <Landing3d></Landing3d>
+      
     </div>
 
     <div
@@ -77,8 +79,24 @@
     </div>
 
     <div
+     class="translateWindow bg-pink-500 w-screen  h-screen absolute  contactUs "
+     :class="current === 'contactUs' ? '' : '-translate-x-full'"
+     >
+      <div class="w-[50%] pl-10 h-full flex flex-col justify-center">
+        <h1 class="font-cornerstone text-[5rem] text-white mb-40">
+          READY TO MAKE EM SAY WOW?
+        </h1>
+      </div>
+      <div class="w-[50%] h-full">
+
+      </div>
+    </div>
+
+    <div
       id="aboutpage"
-      class="h-screen w-screen relative bg-[#C77DFF] flex flex-col justify-center items-center"
+      class="h-screen translateWindow w-screen relative bg-[#C77DFF] flex flex-col justify-center items-center"
+     :class="current === 'contactUs' ? 'translate-x-full' : ''"
+
     >
       <div class="flex w-full h-full justify-center items-center">
         <div
@@ -195,6 +213,8 @@
       </div>
       <NavigatorUp @click="moveUp" :color="'text-white'"></NavigatorUp>
     </div>
+    
+
   </div>
 </template>
 <script lang="ts">
@@ -204,6 +224,7 @@ import NavigatorUp from "./utility/NavigatorUp.vue";
 import NavigatorLeft from "./utility/NavigatorLeft.vue";
 import NavigatorRight from "./utility/NavigatorRight.vue";
 import MiniMap from "./utility/MiniMap.vue";
+import Landing3d from "./Landing3d.vue";
 export default {
   name: "HomePage",
   components: {
@@ -213,6 +234,7 @@ export default {
     NavigatorLeft,
     NavigatorRight,
     MiniMap,
+    Landing3d
   },
   data() {
     return {
@@ -317,6 +339,9 @@ export default {
         this.current = "worktab";
         this.xtranslate += 100;
       }
+      else if (this.current === "contactUs") {
+        this.current = "aboutpage";
+      }
     },
     moveLeft() {
       if (this.current === "worktab") {
@@ -324,6 +349,9 @@ export default {
         console.log("Press Count: " + this.presscount);
         this.current = "Home";
         this.xtranslate -= 100;
+      }
+      else if(this.current === 'aboutpage'){
+        this.current = "contactUs";
       }
     },
   },
