@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     changeColor() {
-      if (this.currentTab === 'worktab' ) {
+      if (this.currentTab === 'worktab' || this.currentTab === 'Info' ) {
         return true;
       } else {
         return false;
