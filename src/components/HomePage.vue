@@ -44,7 +44,7 @@
         ></div>
       </div>
 
-      <NavigatorDown @click="moveDown" :color="'text-white'"></NavigatorDown>
+
 
       <NavigatorLeft @click="moveLeft" :color="'text-white'"></NavigatorLeft>
     </div>
@@ -75,7 +75,7 @@
       <NavigatorUp @click="moveUp" :color="'text-black'"></NavigatorUp>
       <NavigatorDown @click="moveDown" :color="'text-black'"></NavigatorDown>
       <NavigatorRight @click="moveRight" :color="'text-black'"></NavigatorRight>
-      <NavigatorLeft @click="moveLeft" :color="'text-black'"></NavigatorLeft>
+      <!-- <NavigatorLeft @click="moveLeft" :color="'text-black'"></NavigatorLeft> -->
     </div>
 
     <div
@@ -90,6 +90,7 @@
       <div class="w-[50%] h-full">
 
       </div>
+      
     </div>
 
     <div
@@ -211,6 +212,7 @@
           </div>
         </div>
       </div>
+      <NavigatorLeft @click="moveLeft" :color="'text-white'"></NavigatorLeft>
       <NavigatorUp @click="moveUp" :color="'text-white'"></NavigatorUp>
     </div>
     
