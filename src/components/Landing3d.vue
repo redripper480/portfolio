@@ -2,12 +2,19 @@
 	<div id="container3d" class=" w-full h-full"
 	>
 	<div class=" flex justify-center items-center w-full h-full absolute top-0 pointer-events-none">
-		<div class="font-cornerstone text-5xl text-white w-[70%] h-full flex flex-col justify-center items-start">
+
+		<div class="font-cornerstone text-5xl text-white w-[50%] h-full flex flex-col justify-center items-center">
 			HELLO THERE, GEENRAL KENOBI!
 			<br>
 			Its A Pleasure to meet you
 		</div>
 
+    <div class="w-[50%] h-full flex flex-col items-center justify-center">
+      <div class="loader"
+      v-if="(!phone_loaded) || (!h_loaded)"
+      ></div>
+
+    </div>
 	</div>
 	</div>
 </template>
@@ -15,13 +22,15 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { GUI } from 'dat.gui'
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import Stats from 'stats.js'
 import * as TWEEN from '@tweenjs/tween.js'
 
 ////scene
 const scene = new THREE.Scene();
 
+const phone_loaded = ref(false);
+const h_loaded = ref(false);
 
 
 // const stats = new Stats()
@@ -110,7 +119,9 @@ moveUp();
 }, 
 function (xhr) {
     const percentLoaded = (xhr.loaded / xhr.total) * 100;
-    console.log('GLB model ' + Math.round(percentLoaded) + '% loaded');
+    if(percentLoaded >= 100){
+      phone_loaded.value = true;
+    }
   },
   
   function ( error ) {
@@ -173,7 +184,14 @@ moveUp();
 	// }).repeat(Infinity)
 	// tween.start();
 	
-}, undefined, function ( error ) {
+}
+, 
+function (xhr) {
+    const hpercentLoaded = (xhr.loaded / xhr.total) * 100;
+    if(hpercentLoaded >= 100){
+      h_loaded.value = true;
+    }
+  },function ( error ) {
 	
 	console.error( error );
 	
@@ -262,5 +280,39 @@ window.addEventListener('resize', ()=>{
 </script>
 
 <style>
+.loader {
+  display: block;
+  --height-of-loader: 6px;
+  --loader-color: rgb(138, 23, 245);
+  width: 200px;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0,0,0,0.2);
+  position: relative;
+}
 
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 1s ease-in-out infinite;
+  ;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
 </style>
